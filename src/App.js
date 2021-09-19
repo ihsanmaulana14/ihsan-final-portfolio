@@ -12,8 +12,9 @@ import ContactPage from './Pages/ContactPage';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Route, Switch as Switching } from "react-router";
-import Switch from '@material-ui/core/Switch'
+// import Switch from '@material-ui/core/Switch'
 import { IconButton } from "@material-ui/core";
+import avatar from './img/im-logo-512px.png';
 
 
 function App() {
@@ -42,34 +43,48 @@ function App() {
         <div className="theme">
           <div className="light-dark-mode">
               <div className="left-content">
-                <Brightness4Icon />
-              </div>
-              <div className="right-content">
-                <Switch
-                  value=""
-                  checked={checked}
-                  inputProps={{ 'aria-label': '' }}
-                  size="medium"
-                  onClick={themeToggler}
-                  
+                <Brightness4Icon 
+                checked={checked}
+                inputProps={{ 'aria-label': '' }}
+                size="medium"
+                onClick={themeToggler}
                 />
               </div>
+              {/* <div className="right-content">
+                <Switch
+                  // value=""
+                  // checked={checked}
+                  // inputProps={{ 'aria-label': '' }}
+                  // size="medium"
+                  // onClick={themeToggler}
+                  
+                />
+              </div> */}
             </div>
         </div>
 
-        <div className="ham-burger-menu">
-          <IconButton onClick={() => setNavToggle(!navToggle)}>
-              <MenuIcon />
-          </IconButton>
+        <div className="header-l">
+          <div className="container-l">
+            <div className="ham-burger-avatar">
+              <IconButton>
+                    <img src={avatar} alt=""/>
+              </IconButton>
+            </div>
+            <div className="ham-burger-menu">
+              <IconButton onClick={() => setNavToggle(!navToggle)}>
+                  <MenuIcon />
+              </IconButton>
+            </div>
+          </div>
         </div>
 
-        <MainContentStyled>
-          <div className="lines">
+        <MainContentStyled className={`${navToggle ? 'nav-toggle-main' : ''}`}>
+          {/* <div className="lines">
             <div className="line-1"></div>
             <div className="line-2"></div>
             <div className="line-3"></div>
             <div className="line-4"></div>
-          </div>
+          </div> */}
 
           <Switching>
             <Route path="/" exact>
@@ -99,11 +114,16 @@ function App() {
 
 const MainContentStyled = styled.main`
   position: relative;
-  margin-left: 16.3rem;
+  /* margin-left: 16.3rem; */
   min-height: 100vh;
-  @media screen and (max-width:1200px){
-    margin-left: 0;
+  transition: all .4s ease-in-out;
+  @media screen and (max-width: 576px){
+    margin-left: 3.3rem;
   }
+  @media screen and (min-width: 576px){
+    margin-left: 6.3rem;
+  }
+
   .lines{
     position: absolute;
     min-height: 100%;

@@ -22,15 +22,15 @@ const PrimaryButtonStyled = styled.a`
     &::after{
         content: "";
         position: absolute;
-        width: 0;
-        height: .2rem;
+        width: .2rem;
+        height: 0;
         transition: all .4s ease-in-out;
         left: 0;
         bottom: 0;
         opacity: .7;
     }
     &:hover::after{
-        width: 100%;
+        height: 100%;
         background-color: var(--white-color);
     }
 `;

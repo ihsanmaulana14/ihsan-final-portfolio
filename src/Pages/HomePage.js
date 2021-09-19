@@ -1,32 +1,36 @@
 import React from 'react'
 import styled from 'styled-components';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GithubIcon from '@material-ui/icons/GitHub';
-import YoutubeIcon from '@material-ui/icons/YouTube';
+import InstagramIcon from '@material-ui/icons/Instagram';
 import Particle from '../Components/Particle';
+import myImage from '../img/ihsan-photo-2.png';
+
+
 
 function HomePage() {
-    return (
+    return ( 
         <HomePageStyled>
             <div className="particle-con">
                 <Particle />
             </div>
             <div className="typography">
-                <h1>Hi, I'm <span>Lorem Ipsum</span></h1>
+                <img className="myimage" src={myImage} alt=""/>
+                <h1>Hi,I'm <span>Ihsan Maulana</span></h1>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Atque nihil voluptates ea dolore vel 
                     repellat? Quia tenetur non quam exercitationem. Lorem ipsum dolor sit amet.
                 </p>
                 <div className="icons">
-                    <a href="https://codepen.io/pen/" className="icon i-facebook">
-                        <FacebookIcon />
+                    <a href="https://codepen.io/pen/" className="icon i-linkedin">
+                        <LinkedInIcon />
                     </a>
                     <a href="https://codepen.io/pen/" className="icon i-github">
                         <GithubIcon />
                     </a>
-                    <a href="https://codepen.io/pen/" className="icon i-youtube">
-                        <YoutubeIcon />
+                    <a href="https://codepen.io/pen/" className="icon i-instagram">
+                        <InstagramIcon />
                     </a>
                 </div>
             </div>
@@ -47,6 +51,17 @@ const HomePageStyled = styled.header`
         text-align: center;
         width: 80%;
 
+        img {
+            height: auto;
+            border-radius: 50%;
+
+            @media screen and (min-width: 768px){
+                max-width: 260px;
+            }
+            @media screen and (max-width: 768px){
+                max-width: 240px;
+            }
+        }
         .icons{
             display: flex;
             justify-content: center;
@@ -62,6 +77,7 @@ const HomePageStyled = styled.header`
                 &:hover{
                     border: 2px solid var(--primary-color);
                     color: var(--primary-color);
+                    transform: scale(1.2);
                 }
                 &:not(:last-child){
                     margin-right: 1rem;
@@ -71,7 +87,7 @@ const HomePageStyled = styled.header`
                 }
             }
 
-            .i-youtube{
+            /* .i-youtube{
                 &:hover{
                     border: 2px solid red;
                     color: red;
@@ -82,7 +98,7 @@ const HomePageStyled = styled.header`
                     border: 2px solid #5F4687;
                     color: #5F4687;
                 }
-            }
+            } */
         }
     }
 `;

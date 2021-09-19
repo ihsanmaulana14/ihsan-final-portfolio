@@ -39,6 +39,8 @@ const GlobalStyle = createGlobalStyle`
     --scrollbar-bg-color: #383838;
     --scrollbar-thump-color: #6b6b6b;
     --scrollbar-track-color: #383838;
+    /* shadow title color */
+    --sd-color:rgba(25, 29, 43, 0.07);
 }
 .dark-theme{
     --primary-color: #007bff;
@@ -57,6 +59,8 @@ const GlobalStyle = createGlobalStyle`
     --scrollbar-bg-color: #383838;
     --scrollbar-thump-color: #6b6b6b;
     --scrollbar-track-color: #383838;
+    /* shadow title color */
+    --sd-color:rgba(25,29,43,.44);
 }
 
 *{
@@ -76,7 +80,7 @@ body{
     transition: all .4s ease-in-out;
 }
 
-body::-webkit-scrollbar{
+/* body::-webkit-scrollbar{
     width: 9px;
     background-color: #383838;
 }
@@ -87,7 +91,7 @@ body::-webkit-scrollbar-thumb{
 body::-webkit-scrollbar-track{
     border-radius: 10px;
     background-color: #383838;
-}
+} */
 
 textarea{
     max-width: 100%;
@@ -104,13 +108,19 @@ h1{
     color: var(--white-color);
     span{
         font-size: 4rem;
-        @media screen and (max-width: 502px){
+        @media screen and (max-width: 960px){
             font-size: 3rem
         }
+        @media screen and (max-width: 768px){
+            font-size: 2.2rem
+        }
     }
-    @media screen and (max-width: 502px){
+    @media screen and (max-width: 960px){
         font-size: 3rem
     }
+    @media screen and (max-width: 768px){
+            font-size: 2.2rem
+        }
 }
 
 span{
@@ -149,26 +159,95 @@ h6{
   }
 
   //Nav Toggler
+  .header-l{
+    width: 100%;
+    padding-top: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 30;
+    background-color: transparent;
+    .container-l{
+        
+        height: 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* margin: 0 .5rem 0 .5rem; */
+        /* @media screen and (min-width: 960px){
+            margin: 0 1rem 0 1rem;
+        } */
+        @media screen and (min-width: 576px){
+            margin: 0 1rem 0 1rem;
+        }
+        .ham-burger-menu{
+            /* position: fixed;
+            right: 5%;
+            top: 3%; 
+            display: none; */
+            background-color: var(--background-dark-color);
+            border-radius: 10%;
+            z-index: 15;
+            svg{
+                font-size: 2.2rem;
+                @media screen and (min-width: 576px){
+                    font-size: 3rem;
+                  }
+              }
+          }
+          .ham-burger-avatar{
+              /* position: fixed;
+              left: 5%;
+              top: 3%;  */
+              /* display: none; */
+              background-color: var(--background-dark-color);
+              border-radius: 10%;
+              z-index: 15;
+              img{
+                  width: 30px;
+                  height: auto;
+                  /* text-align: center;
+                  padding: 1rem 0; */
+                  @media screen and (min-width: 576px){
+                      width: 40px;
+                  }
+              }
+          }
+        }
+    }
+    
+    @media screen and (min-width: 576px){
+        .nav-toggle{
+            /* transform: translateX(0);
+            z-index: 20; */
+            margin-left: -6.3rem;
+        }
+        .nav-toggle-main{
+            /* transform: translateX(0);
+            z-index: 20; */
+            margin-left: 0rem;
+        }
+    }
+    @media screen and (max-width:576px){
+        .nav-toggle{
+        /* transform: translateX(0);
+        z-index: 20; */
+        margin-left: -3.3rem;
+    }
+    .nav-toggle-main{
+        /* transform: translateX(0);
+        z-index: 20; */
+        margin-left: 0rem;
+    }
+  }
   .ham-burger-menu{
-      position: absolute;
-      right: 5%;
-      top: 3%; 
-      display: none;
-      z-index: 15;
-      svg{
-          font-size: 3rem;
-      }
+        display: block;
     }
-
-    .nav-toggle{
-        transform: translateX(0);
-        z-index: 20;
-    }
-  @media screen and (max-width:1200px){
+  /* @media screen and (max-width:1200px){
     .ham-burger-menu{
         display: block;
     }
-  }
+  } */
 
 
 //Global Media Queries

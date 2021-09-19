@@ -13,13 +13,22 @@ function Sidebar({navToggle}) {
 const SidebarStyled = styled.div`
     width: 16.3rem;
     position: fixed;
-    height: 100vh;
     background-color: var(--sidebar-dark-color);
     overflow: hidden;
     transition: all .4s ease-in-out;
-    @media screen and (max-width:1200px){
-        transform: translateX(-100%);
+    @media screen and (min-width:576px){
+        /* transform: translateX(-100%); */
+        width: 6.3rem;
+        height: 100vh;
+        top: 0;
+        left: 0;
         z-index: 20;
+    }
+    @media screen and (max-width: 576px){
+        /* transform: translateX(-100%); */
+        width: 3.3rem;
+        height: 100vh;
+        /* z-index: 20; */
     }
 `;
 
