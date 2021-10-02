@@ -1,5 +1,4 @@
-import {createGlobalStyle} from 'styled-components';
-
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 /* :root{
@@ -69,8 +68,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.1rem;
+    /* font-family: 'Nunito', sans-serif; */
+    font-family: 'Poppins', sans-serif;
+    /* font-size: 1.1rem; */
+    font-size: 16px;
+    scroll-behavior: smooth;
     
 }
 
@@ -80,18 +82,6 @@ body{
     transition: all .4s ease-in-out;
 }
 
-/* body::-webkit-scrollbar{
-    width: 9px;
-    background-color: #383838;
-}
-body::-webkit-scrollbar-thumb{
-    border-radius: 10px;
-    background-color: #6b6b6b;
-}
-body::-webkit-scrollbar-track{
-    border-radius: 10px;
-    background-color: #383838;
-} */
 
 textarea{
     max-width: 100%;
@@ -114,6 +104,9 @@ h1{
         @media screen and (max-width: 768px){
             font-size: 2.2rem
         }
+        @media screen and (max-width: 576px){
+            font-size:  1.5rem
+        }
     }
     @media screen and (max-width: 960px){
         font-size: 3rem
@@ -121,6 +114,9 @@ h1{
     @media screen and (max-width: 768px){
             font-size: 2.2rem
         }
+    @media screen and (max-width: 576px){
+        font-size:  1.5rem
+    }
 }
 
 span{
@@ -167,24 +163,21 @@ h6{
     left: 0;
     z-index: 30;
     background-color: transparent;
+    transition: all 0.4s ease-in-out;
+
     .container-l{
         
         height: 3rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* margin: 0 .5rem 0 .5rem; */
-        /* @media screen and (min-width: 960px){
-            margin: 0 1rem 0 1rem;
-        } */
+        @media screen and (max-width: 576px){
+            margin: 0 .5rem 0 .5rem;
+        }
         @media screen and (min-width: 576px){
             margin: 0 1rem 0 1rem;
         }
         .ham-burger-menu{
-            /* position: fixed;
-            right: 5%;
-            top: 3%; 
-            display: none; */
             background-color: var(--background-dark-color);
             border-radius: 10%;
             z-index: 15;
@@ -196,20 +189,27 @@ h6{
               }
           }
           .ham-burger-avatar{
-              /* position: fixed;
-              left: 5%;
-              top: 3%;  */
-              /* display: none; */
               background-color: var(--background-dark-color);
               border-radius: 10%;
               z-index: 15;
               img{
                   width: 30px;
                   height: auto;
-                  /* text-align: center;
-                  padding: 1rem 0; */
                   @media screen and (min-width: 576px){
                       width: 40px;
+                  }
+              }
+          }
+          .ham-burger-theme{
+              background-color: var(--background-dark-color);
+              border-radius: 10%;
+              z-index: 15;
+              cursor: pointer;
+             
+              svg{
+                font-size: 1.8rem;
+                @media screen and (max-width: 576px){
+                    font-size: 1.5rem;
                   }
               }
           }
@@ -218,36 +218,65 @@ h6{
     
     @media screen and (min-width: 576px){
         .nav-toggle{
-            /* transform: translateX(0);
-            z-index: 20; */
             margin-left: -6.3rem;
         }
+        .nav-toggle-header{
+            padding-left: -6.3rem;
+        }
+        ._header{
+            padding-left: 6.3rem;
+        }
         .nav-toggle-main{
-            /* transform: translateX(0);
-            z-index: 20; */
             margin-left: 0rem;
         }
     }
     @media screen and (max-width:576px){
         .nav-toggle{
-        /* transform: translateX(0);
-        z-index: 20; */
-        margin-left: -3.3rem;
+        margin-left: -4.3rem;
+        }
+        .nav-toggle-header{
+        padding-left: -4.3rem;
+        }
+        ._header{
+            padding-left: 4.3rem;
+        }
+        .nav-toggle-main{
+            margin-left: 0rem;
+        }
     }
-    .nav-toggle-main{
-        /* transform: translateX(0);
-        z-index: 20; */
-        margin-left: 0rem;
-    }
-  }
   .ham-burger-menu{
         display: block;
     }
-  /* @media screen and (max-width:1200px){
-    .ham-burger-menu{
+  
+
+  .nav-toggle-skills{
+        display: grid;
+        animation: fadeInTop 1s ease;
+    }
+  .nav-toggle-resume{
+        display: grid;
+        animation: fadeInTop 1s ease;
+    }
+    .hidden{
+        display: none;
+    }
+    .tabs {
+        background-color: transparent;
+        color: gray;
+    }
+    .active-tabs {
+        color: var(--white-color);
+        border-bottom: 3px solid #0b335f;
+        display: grid;
+    }
+    .contents{
+        display: none;
+        justify-content: center;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+    .active-content{
         display: block;
     }
-  } */
 
 
 //Global Media Queries
